@@ -35,9 +35,9 @@ class App extends Component {
     
       for (let i = 0; i < currentTodos.length; i++) {
         
-        if ( currentTodos[i].id == id ) {
-            currentTodos[i].title == title;
-            currentTodos[i].priority == priority;
+        if ( currentTodos[i].id = id ) {
+            currentTodos[i].title = title;
+            currentTodos[i].priority = priority;
         }
       }
       this.setState({ todos: currentTodos });
