@@ -5,7 +5,8 @@ class AddTodo extends Component {
     super(props);
 
     this.state = {
-      toDo: ' '
+      title: ' ',
+      priority: ' '
     };
     this.handleChange = this.handleChange.bind(this);
     this.submitToDo = this.submitToDo.bind(this);
@@ -15,16 +16,16 @@ class AddTodo extends Component {
   }
   submitToDo(event) {
     event.preventDefault();
-    this.props.addToDo(this.state.toDo);
-    this.setState({ toDo: ' ' });
+    this.props.addToDo(this.state.title, this.state.priority);
+    this.setState({ title: ' ', priority: ' ' });
   }
 
 
   render() {
     return (
   <div>
-    <div className='row'>
-      <div className='col-sm-5'>
+    
+      
         <div className='card'>
           <div className='card-header'>
             Add New Todo
@@ -33,24 +34,24 @@ class AddTodo extends Component {
             <form>
               <div className='form-group'>
                 <label htmlFor='todoInput'>I want to..</label>
-                <textarea className='form-control' id='todoInput' name='toDo' rows='3' value={ this.state.toDo } onChange={ this.handleChange }></textarea>
+                <textarea className='create-todo-text' id='todoInput' name='title' value={ this.state.title } onChange={ this.handleChange }></textarea>
               </div>
               <div className='form-group'>
                 <label htmlFor='selectPriority'>How much of a priority is this?</label>
-                <select className='form-control' id='selectPriority'>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
+                <select className='create-todo-priority form-control' id='selectPriority' name='priority' value={ this.state.priority } onChange={ this.handleChange }>
+                  <option value='1'>High</option>
+                  <option value='2'>Medium</option>
+                  <option value='3'>Low</option>
                 </select>
               </div>
             </form>
           </div>
           <div className='card-footer'>
-            <a href='#' className='btn btn-success btn-block' onClick={ this.submitToDo }>Add</a>
+            <a href='#' className='create-todo btn btn-success btn-block' onClick={ this.submitToDo }>Add</a>
           </div>
         </div>
-      </div>
-    </div>
+      
+    
   </div>
     );
   }
