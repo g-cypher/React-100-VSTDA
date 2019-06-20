@@ -10,7 +10,7 @@ class ViewToDo extends Component {
           <div className='card-header'>
           View To Dos
           </div>
-            <ul className='list-group list-group-flush'>
+            <ul className='list-group list-group-flush list-unstyled'>
               { this.props.todos.map((todo) => { 
               return <ToDoItem key={ todo.id } oneToDo={ todo } delToDo={ this.props.delToDo } editToDo={ this.props.editToDo } />;
               })}

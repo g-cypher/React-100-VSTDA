@@ -16,7 +16,6 @@ class App extends Component {
     this.delToDo = this.delToDo.bind(this);
     this.editToDo = this.editToDo.bind(this);
   }
-//Adding a Todo to
   addToDo(title, priority) {
     const newToDo = {
       title,
@@ -25,23 +24,21 @@ class App extends Component {
     };
     this.setState({ todos: [...this.state.todos, newToDo] });
   }
-//Deleting a Todo
+
   delToDo(id) {
     this.setState({ todos: [...this.state.todos.filter(todo => todo.id !== id)] });
   }
-//Editing a todo
-  editToDo(title, priority, id) {
-    let currentTodos = this.state.todos;
-    
-      for (let i = 0; i < currentTodos.length; i++) {
-        
-        if ( currentTodos[i].id = id ) {
-            currentTodos[i].title = title;
-            currentTodos[i].priority = priority;
-        }
+
+  editToDo(newTitle, newPriority, id) {
+    const currentTodos = this.state.todos;
+
+    for (let i = 0; i < currentTodos.length; i++) {
+      if (currentTodos[i].id === id) {
+        currentTodos[i].title = newTitle;
+        currentTodos[i].priority = newPriority;
       }
-      this.setState({ todos: currentTodos });
-      console.log(currentTodos);
+    }
+    this.setState({ todos: currentTodos });
   }
   render() {
     return (
@@ -59,8 +56,6 @@ class App extends Component {
             <ViewToDo todos={ this.state.todos } delToDo={ this.delToDo } editToDo={ this.editToDo } />
           </div>
         </div>
-        
-
       </div>
     );
   }

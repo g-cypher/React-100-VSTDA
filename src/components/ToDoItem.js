@@ -14,8 +14,8 @@ class ToDoItem extends Component {
         super(props);
 
         this.state = {
-            title: ' ',
-            priority: ' ',
+            newTitle: ' ',
+            newPriority: ' ',
             toggleDisplay: false
 
         };
@@ -34,7 +34,7 @@ class ToDoItem extends Component {
     });
     }
     saveToDo() {
-        this.props.editToDo(this.state.title, this.state.priority, this.props.oneToDo.id);
+        this.props.editToDo(this.state.newTitle, this.state.newPriority, this.props.oneToDo.id);
         this.toggleView();
     }
 
@@ -46,14 +46,14 @@ class ToDoItem extends Component {
                         <input type='checkbox' className='float-left' />
                         { this.props.oneToDo.title }
                         
-                        <a className='btn float-right text-success' 
+                        <a className='edit-todo btn float-right text-success' 
                         name='edit-button'
                         href='#'
                         value={ this.state.toggleDisplay }
                         onClick={ () => this.toggleView() }>
                         <i className='fas fa-pen' /></a>
                         
-                        <a className='btn text-danger float-right' 
+                        <a className='delete-todo btn text-danger float-right'
                         href='#' 
                         onClick={ this.props.delToDo.bind(this, this.props.oneToDo.id) }><i className='fas fa-trash' /></a>
                     
@@ -62,11 +62,11 @@ class ToDoItem extends Component {
                     <div className={ `alert-${priorityColor(this.props.oneToDo.priority)} clearfix` }>
                         <div>
                             <label htmlFor='update-todo-text'>Description</label>
-                                <textarea className='update-todo-text form-control' name='title' id='exampleFormControlTextarea1'rows='5'value={ this.state.title }onChange={ this.handleChange } />
+                                <textarea className='update-todo-text form-control' name='newTitle' id='exampleFormControlTextarea1'rows='5'value={ this.state.newTitle }onChange={ this.handleChange } />
                         </div>
                         <div>
                             <label htmlFor='newPrioritySelect'> How much of a priority is this?</label>
-                                <select name='priority'id='newPrioritySelect'className='form-control update-todo-priority'value={ this.state.priority }onChange={ this.handleChange }>
+                                <select name='newPriority'id='newPrioritySelect'className='form-control update-todo-priority'value={ this.state.newPriority }onChange={ this.handleChange }>
                                     <option value='Select'>Select a Priority</option>
                                     <option value='1'>Low</option>
                                     <option value='2'>Medium</option>

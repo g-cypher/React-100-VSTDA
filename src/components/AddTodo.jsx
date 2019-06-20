@@ -39,15 +39,16 @@ class AddTodo extends Component {
               <div className='form-group'>
                 <label htmlFor='selectPriority'>How much of a priority is this?</label>
                 <select className='create-todo-priority form-control' id='selectPriority' name='priority' value={ this.state.priority } onChange={ this.handleChange }>
-                  <option value='1'>High</option>
+                  <option value=' ' selected disabled>Please select</option>
+                  <option value='1'>Low</option>
                   <option value='2'>Medium</option>
-                  <option value='3'>Low</option>
+                  <option value='3'>High</option>
                 </select>
               </div>
             </form>
           </div>
           <div className='card-footer'>
-            <a href='#' className='create-todo btn btn-success btn-block' onClick={ this.submitToDo }>Add</a>
+            <button className='create-todo btn btn-success btn-block' onClick={ this.submitToDo }>Add</button>
           </div>
         </div>
       
