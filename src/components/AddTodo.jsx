@@ -24,35 +24,31 @@ class AddTodo extends Component {
   render() {
     return (
   <div>
-    
-      
-        <div className='card'>
-          <div className='card-header'>
-            Add New Todo
+    <div className='card'>
+      <div className='card-header'>
+        Add New Todo
+      </div>
+      <div className='card-body'>
+        <form>
+          <div className='form-group'>
+            <label htmlFor='todoInput'>I want to..</label>
+            <textarea className='create-todo-text' id='todoInput' name='title' value={ this.state.title } onChange={ this.handleChange } />
           </div>
-          <div className='card-body'>
-            <form>
-              <div className='form-group'>
-                <label htmlFor='todoInput'>I want to..</label>
-                <textarea className='create-todo-text' id='todoInput' name='title' value={ this.state.title } onChange={ this.handleChange }></textarea>
-              </div>
-              <div className='form-group'>
-                <label htmlFor='selectPriority'>How much of a priority is this?</label>
-                <select className='create-todo-priority form-control' id='selectPriority' name='priority' value={ this.state.priority } onChange={ this.handleChange }>
-                  <option value=' ' selected disabled>Please select</option>
-                  <option value='1'>Low</option>
-                  <option value='2'>Medium</option>
-                  <option value='3'>High</option>
-                </select>
-              </div>
-            </form>
+          <div className='form-group'>
+            <label htmlFor='selectPriority'>How much of a priority is this?</label>
+            <select className='create-todo-priority form-control' id='selectPriority' name='priority' value={ this.state.priority } onChange={ this.handleChange }>
+              <option value=' ' selected disabled>Please select</option>
+              <option value='1'>Low</option>
+              <option value='2'>Medium</option>
+              <option value='3'>High</option>
+            </select>
           </div>
-          <div className='card-footer'>
-            <button className='create-todo btn btn-success btn-block' onClick={ this.submitToDo }>Add</button>
-          </div>
-        </div>
-      
-    
+        </form>
+      </div>
+      <div className='card-footer'>
+        <button className='create-todo btn btn-success btn-block' onClick={ this.submitToDo }>Add</button>
+      </div>
+    </div>
   </div>
     );
   }
